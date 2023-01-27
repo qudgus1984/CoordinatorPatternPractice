@@ -9,32 +9,34 @@ import UIKit
 import SnapKit
 
 protocol MainViewControllerDelegate {
-    func next()
+    func logout()
 }
 
 class MainViewController: UIViewController {
     
-    private var mainview = MainView()
+    var mainview = MainView()
     
-    var delegate: MainViewControllerDelegate?
-    
-    override func loadView() {
-        self.view = mainview
-    }
+//    override func loadView() {
+////        self.view = mainview
+//    }
 
+    var delegate: MainViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let item = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextButtonTapped))
+        let item = UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(logoutButtonDidTap))
         self.navigationItem.rightBarButtonItem = item
+        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .systemRed
+        
     }
     
     deinit {
         print("- \(type(of: self)) deinit")
     }
     
-    @objc func nextButtonTapped() {
-        self.delegate?.next()
+    @objc
+    func logoutButtonDidTap() {
+        self.delegate?.logout()
     }
 }
 
@@ -53,7 +55,7 @@ class MainView: UIView {
     
     let bgView: UIView = {
         let view = UIView()
-        view.backgroundColor = .cyan
+        view.backgroundColor = .yellow
         return view
     }()
     
@@ -63,7 +65,7 @@ class MainView: UIView {
     
     func setConstants() {
         bgView.snp.makeConstraints { make in
-            make.edges.equalTo(0)
+            make.edges.equalToSuperview()
         }
     }
 }

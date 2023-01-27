@@ -8,32 +8,33 @@
 import UIKit
 import SnapKit
 
-protocol NextViewControllerDelegate {
-    func back()
+protocol LoginViewControllerDelegate {
+    func login()
 }
 
-class NextViewController: UIViewController {
+class LoginViewController: UIViewController {
     
-    private var mainview = NextView()
-    var delegate: NextViewControllerDelegate?
-    
-    override func loadView() {
-        self.view = mainview
-    }
+    var mainview = MainView()
 
+    var delegate: LoginViewControllerDelegate?
+    
+//    override func loadView() {
+////        self.view = mainview
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let item = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backButtonTapped))
+        let item = UIBarButtonItem(title: "로그인", style: .plain, target: self, action: #selector(self.loginButtonDidTap))
         self.navigationItem.rightBarButtonItem = item
+        self.view.backgroundColor = .systemPink
     }
     
     deinit {
         print("- \(type(of: self)) deinit")
     }
     
-    @objc func backButtonTapped() {
-        self.delegate?.back()
+    @objc
+    func loginButtonDidTap() {
+        self.delegate?.login()
     }
 }
 
@@ -62,7 +63,7 @@ class NextView: UIView {
     
     func setConstants() {
         bgView.snp.makeConstraints { make in
-            make.edges.equalTo(0)
+            make.edges.equalToSuperview()
         }
     }
 }

@@ -7,22 +7,22 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator, MainCoordinatorDelegate, NextCoordinatorDelegate {
-    
+class AppCoordinator: Coordinator, LoginCoordinatorDelegate, MainCoordinatorDelegate {
+
     var childCoordinators: [Coordinator] = []
     private var navigationController: UINavigationController!
     
-    var isNext: Bool = false
+    var isLoggedIn: Bool = false
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-        
+    
     func start() {
-        if self.isNext {
-            self.showNextViewController()
-        } else {
+        if self.isLoggedIn {
             self.showMainViewController()
+        } else {
+            self.showLoginViewController()
         }
     }
     
@@ -33,21 +33,20 @@ class AppCoordinator: Coordinator, MainCoordinatorDelegate, NextCoordinatorDeleg
         self.childCoordinators.append(coordinator)
     }
     
-    private func showNextViewController() {
-        let coordinator = NextCoordinator(navigationController: self.navigationController)
+    private func showLoginViewController() {
+        let coordinator = LoginCoordinator(navigationController: self.navigationController)
         coordinator.delegate = self
         coordinator.start()
         self.childCoordinators.append(coordinator)
-        
     }
     
-    func didNext(_ coordinator: MainCoordinator) {
+    func didLoggedIn(_ coordinator: LoginCoordinator) {
         self.childCoordinators = self.childCoordinators.filter { $0 !== coordinator }
         self.showMainViewController()
     }
     
-    func didBack(_ coordinator: NextCoordinator) {
+    func didLoggedOut(_ coordinator: MainCoordinator) {
         self.childCoordinators = self.childCoordinators.filter { $0 !== coordinator }
-        self.showNextViewController()
+        self.showLoginViewController()
     }
 }

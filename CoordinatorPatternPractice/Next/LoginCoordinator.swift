@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol NextCoordinatorDelegate {
-    func didBack(_ coordinator: NextCoordinator)
+protocol LoginCoordinatorDelegate {
+    func didLoggedIn(_ coordinator: LoginCoordinator)
 }
 
-class NextCoordinator: Coordinator, NextViewControllerDelegate {
-    
+class LoginCoordinator: Coordinator, LoginViewControllerDelegate {
+
     var childCoordinators: [Coordinator] = []
-    var delegate: NextCoordinatorDelegate?
+    var delegate: LoginCoordinatorDelegate?
     
     private var navigationController: UINavigationController!
     
@@ -23,13 +23,15 @@ class NextCoordinator: Coordinator, NextViewControllerDelegate {
     }
     
     func start() {
-        let viewController = NextViewController()
-        viewController.view.backgroundColor = .cyan
+        let viewController = LoginViewController()
+//        viewController.view.backgroundColor = .brown
         viewController.delegate = self
+        
         self.navigationController.viewControllers = [viewController]
     }
     
-    func back() {
-        self.delegate?.didBack(self)
+    func login() {
+        self.delegate?.didLoggedIn(self)
     }
 }
+
