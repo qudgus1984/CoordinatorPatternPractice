@@ -16,16 +16,15 @@ class MainViewController: UIViewController {
     
     var mainview = MainView()
     
-//    override func loadView() {
-////        self.view = mainview
-//    }
+    override func loadView() {
+        self.view = mainview
+    }
 
     var delegate: MainViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         let item = UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(logoutButtonDidTap))
         self.navigationItem.rightBarButtonItem = item
-        // Do any additional setup after loading the view.
         self.view.backgroundColor = .systemRed
         
     }

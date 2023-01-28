@@ -18,6 +18,12 @@
 		2FAE927B298266FA004A517D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE927A298266FA004A517D /* AppCoordinator.swift */; };
 		2FAE927E298269EC004A517D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE927D298269EC004A517D /* MainCoordinator.swift */; };
 		2FAE928129827171004A517D /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE928029827171004A517D /* LoginCoordinator.swift */; };
+		2FCCB6F9298502A800DCDE98 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCB6F8298502A800DCDE98 /* FirstViewController.swift */; };
+		2FCCB6FB298502DC00DCDE98 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCB6FA298502DC00DCDE98 /* FirstView.swift */; };
+		2FCCB6FD2985030D00DCDE98 /* FirstCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCB6FC2985030D00DCDE98 /* FirstCoordinator.swift */; };
+		2FCCB6FF2985063900DCDE98 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCB6FE2985063900DCDE98 /* SecondViewController.swift */; };
+		2FCCB7012985064600DCDE98 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCB7002985064600DCDE98 /* SecondView.swift */; };
+		2FCCB7032985064E00DCDE98 /* SecondCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCB7022985064E00DCDE98 /* SecondCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,12 @@
 		2FAE927A298266FA004A517D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FAE927D298269EC004A517D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		2FAE928029827171004A517D /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		2FCCB6F8298502A800DCDE98 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		2FCCB6FA298502DC00DCDE98 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		2FCCB6FC2985030D00DCDE98 /* FirstCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCoordinator.swift; sourceTree = "<group>"; };
+		2FCCB6FE2985063900DCDE98 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		2FCCB7002985064600DCDE98 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		2FCCB7022985064E00DCDE98 /* SecondCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +78,9 @@
 		2FAE925D298255F3004A517D /* CoordinatorPatternPractice */ = {
 			isa = PBXGroup;
 			children = (
-				2FAE927F2982715D004A517D /* Next */,
+				2FCCB6F72985027400DCDE98 /* First */,
+				2FCCB6F62985026A00DCDE98 /* Second */,
+				2FAE927F2982715D004A517D /* Login */,
 				2FAE927C298269CF004A517D /* Main */,
 				2FAE92772982669B004A517D /* Coordinator */,
 				2FAE925E298255F3004A517D /* AppDelegate.swift */,
@@ -96,13 +110,33 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		2FAE927F2982715D004A517D /* Next */ = {
+		2FAE927F2982715D004A517D /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				2FAE927529825BE6004A517D /* LoginViewController.swift */,
 				2FAE928029827171004A517D /* LoginCoordinator.swift */,
 			);
-			path = Next;
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2FCCB6F62985026A00DCDE98 /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				2FCCB6FE2985063900DCDE98 /* SecondViewController.swift */,
+				2FCCB7002985064600DCDE98 /* SecondView.swift */,
+				2FCCB7022985064E00DCDE98 /* SecondCoordinator.swift */,
+			);
+			path = Second;
+			sourceTree = "<group>";
+		};
+		2FCCB6F72985027400DCDE98 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				2FCCB6F8298502A800DCDE98 /* FirstViewController.swift */,
+				2FCCB6FA298502DC00DCDE98 /* FirstView.swift */,
+				2FCCB6FC2985030D00DCDE98 /* FirstCoordinator.swift */,
+			);
+			path = First;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,12 +215,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FCCB6FF2985063900DCDE98 /* SecondViewController.swift in Sources */,
+				2FCCB6F9298502A800DCDE98 /* FirstViewController.swift in Sources */,
+				2FCCB6FB298502DC00DCDE98 /* FirstView.swift in Sources */,
 				2FAE927B298266FA004A517D /* AppCoordinator.swift in Sources */,
+				2FCCB7032985064E00DCDE98 /* SecondCoordinator.swift in Sources */,
 				2FAE927E298269EC004A517D /* MainCoordinator.swift in Sources */,
+				2FCCB6FD2985030D00DCDE98 /* FirstCoordinator.swift in Sources */,
 				2FAE9263298255F3004A517D /* MainViewController.swift in Sources */,
 				2FAE928129827171004A517D /* LoginCoordinator.swift in Sources */,
 				2FAE927629825BE6004A517D /* LoginViewController.swift in Sources */,
 				2FAE9279298266C0004A517D /* Protocol +.swift in Sources */,
+				2FCCB7012985064600DCDE98 /* SecondView.swift in Sources */,
 				2FAE925F298255F3004A517D /* AppDelegate.swift in Sources */,
 				2FAE9261298255F3004A517D /* SceneDelegate.swift in Sources */,
 			);

@@ -24,9 +24,11 @@ class MainCoordinator: Coordinator, MainViewControllerDelegate {
     
     func start() {
         let viewController = MainViewController()
-//        viewController.view.backgroundColor = .cyan
+        viewController.view.backgroundColor = .cyan
         viewController.delegate = self
-        self.navigationController.viewControllers = [viewController]
+        self.navigationController.pushViewController(viewController, animated: true)
+//        self.navigationController.viewControllers = [viewController]
+        // VC deinit 시킬 때
     }
     
     func logout() {
